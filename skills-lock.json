@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "bhookmark-ui": {
+      "source": "NJ-0803/swap_da_skill",
+      "sourceType": "github",
+      "skillPath": "skills/bhookmark-ui/SKILL.md",
+      "computedHash": "8ead76643302ced139b8424adeedc6a7e92699b3ead979fddcee44ca2a2b8cc8"
+    }
+  }
+}

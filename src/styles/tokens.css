@@ -1,0 +1,38 @@
+/* NiveshBuddy company theme on the Bhookmark system.
+   Same roles and contrast floor as bhookmark.tokens.css (text 4.5:1, control outlines 3:1),
+   green brand accent instead of burgundy. Measured:
+   Evening  ink/bg 16.3, muted/surface 8.6, faint/surface2 5.5, rose/bg 10.4, accent-ink/accent 5.0, control/surface2 4.1
+   Daylight ink/bg 16.0, muted/surface 8.6, faint/surface2 5.8, rose/surface2 5.6, accent-ink/accent 5.0, control/surface2 3.1 */
+:root, :root[data-theme="evening"] {
+  --bg: 15 20 18; --surface: 24 32 28; --surface2: 34 43 39; --line: 49 60 54;
+  --control: 122 140 130;
+  --ink: 236 241 237; --muted: 176 190 182; --faint: 146 162 154;
+  --accent: 30 122 80; --accent-ink: 244 249 246; --accent-dim: 22 48 36; --rose: 127 211 166;
+  --bad: 240 140 140; --bad-dim: 52 26 28;
+  --scrim: 5 8 7;
+  --etch: 160 230 190;
+  --shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.05), 0 16px 36px -20px rgb(0 0 0 / 0.7);
+  --shadow-float: 0 50px 100px -30px rgb(0 0 0 / 0.85), 0 22px 44px -26px rgb(30 122 80 / 0.4);
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-heading: "Inter Tight Variable", "Inter Tight", Inter, system-ui, sans-serif;
+  --font-body: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius-card: 22px; --radius-control: 14px;
+  --page-glow: radial-gradient(ellipse 60% 45% at 78% 0%, rgb(30 122 80 / 0.22), transparent 70%);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-press: cubic-bezier(0.23, 1, 0.32, 1);
+  color-scheme: dark;
+}
+:root[data-theme="daylight"] {
+  --bg: 242 245 241; --surface: 252 253 251; --surface2: 228 234 229; --line: 210 220 212;
+  --control: 118 134 125;
+  --ink: 17 27 22; --muted: 62 78 70; --faint: 76 92 84;
+  --accent: 30 122 80; --accent-ink: 244 249 246; --accent-dim: 219 237 226; --rose: 22 104 67;
+  --bad: 170 40 46; --bad-dim: 250 228 228;
+  --scrim: 17 27 22;
+  --etch: 160 230 190;
+  --shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.8), 0 14px 32px -20px rgb(30 50 40 / 0.28);
+  --shadow-float: 0 44px 90px -30px rgb(30 50 40 / 0.4), 0 20px 40px -26px rgb(30 122 80 / 0.25);
+  --page-glow: radial-gradient(ellipse 60% 45% at 78% 0%, rgb(30 122 80 / 0.12), transparent 70%);
+  color-scheme: light;
+}

@@ -1,59 +1,52 @@
 import React from "react";
-import classes from "./Footer.module.css"
-// import logo from "../../Assets/niveshBuddy copy.svg"
+import { Link } from "react-router-dom";
+import Logo from "../Logo/Logo";
+import classes from "./Footer.module.css";
 
-const Footer = () => {
-  return (
-    <footer>
+export const CONTACT_EMAIL = "nivesh.buddy@gmail.com";
+
+const Footer = () => (
+  <footer className={classes.footer}>
+    <div className={`wrap ${classes.grid}`}>
       <div className={classes.about}>
-        <div className={classes.logo}>
-          <img src="https://res.cloudinary.com/dnrxsykwg/image/upload/v1713003276/niveshBuddy_copy_tbaysp.svg" alt="logo" />
-        </div>
-        <div className={classes.para}>
-          <p>
-            Your go-to for mastering Indian equity markets. Start your journey
-            to financial prosperity today!
-          </p>
-        </div>
+        <Link to="/" className={classes.brand}>
+          <Logo className={classes.logo} />
+        </Link>
+        <p>
+          Your go-to for mastering Indian equity markets. Start your journey to financial
+          prosperity today.
+        </p>
       </div>
-      <div className={classes.links}>
-        <div className={classes.one}>
-          <ul className={classes.flink}>
-            <li>
-              <a href="#top" className={classes.f}>About Us</a>
-            </li>
-            <li>
-              <a href="#top" className={classes.f}>Jobs</a>
-            </li>
-            <li>
-              <a href="#top" className={classes.f}>Docs</a>
-            </li>
+
+      <nav aria-label="Footer" className={classes.cols}>
+        <div>
+          <h2 className="label">Product</h2>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/About">About us</Link></li>
+            <li><Link to="/Dashboard">Dashboard</Link></li>
           </ul>
         </div>
-        <div className={classes.two}>
-          <ul className={classes.flink}>
-            <li>
-              <a href="#top" className={classes.f}>Terms and Conditions</a>
-            </li>
-            <li>
-              <a href="#top" className={classes.f}>Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#top" className={classes.f}>Cookie Policy</a>
-            </li>
+        <div>
+          <h2 className="label">Account</h2>
+          <ul>
+            <li><Link to="/SignIn">Sign in</Link></li>
+            <li><Link to="/SignUp">Create an account</Link></li>
           </ul>
         </div>
-        <div className={classes.three}>
-          <ul className={classes.flink}>
-            <li>Connect with Us!</li>
-            <li>nivesh.buddy@gmail.com</li>
-            <li>+91-xxxxx-xxxxx</li>
+        <div>
+          <h2 className="label">Contact</h2>
+          <ul>
+            <li><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
           </ul>
         </div>
-      </div>
-      
-    </footer>
-  );
-};
+      </nav>
+    </div>
+    <div className={`wrap ${classes.legal}`}>
+      <span>© {new Date().getFullYear()} NiveshBuddy</span>
+      <span>Backtest results use historical data and do not predict future returns.</span>
+    </div>
+  </footer>
+);
 
 export default Footer;
