@@ -50,7 +50,7 @@ a { color: rgb(var(--rose)); text-underline-offset: 3px; }
 .card { background: rgb(var(--surface)); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 24px; }
 
 /* Form controls: outline uses --control (>= 3:1), never --line */
-.fieldset { display: grid; gap: 8px; }
+.fieldset { display: grid; gap: 8px; align-content: start; }
 .fieldset > label { font-size: 14px; font-weight: 500; color: rgb(var(--muted)); }
 .field {
   width: 100%; min-height: 52px; padding: 0 16px;

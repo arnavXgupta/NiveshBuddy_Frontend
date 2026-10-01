@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { m } from "framer-motion";
 import Logo from "../../../Components/Logo/Logo";
 import ThemeToggle from "../../../Components/ThemeToggle/ThemeToggle";
 import classes from "../Styles/Auth.module.css";
@@ -57,14 +56,7 @@ const AuthForm = ({ mode, submit }) => {
       </header>
 
       <main className={classes.main}>
-        <m.form
-          className={`card ${classes.card}`}
-          onSubmit={onSubmit}
-          initial={{ opacity: 0, y: 16, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ type: "spring", stiffness: 280, damping: 24 }}
-          aria-labelledby="auth-title"
-        >
+        <form className={`card ${classes.card}`} onSubmit={onSubmit} aria-labelledby="auth-title">
           <div className={classes.head}>
             <h1 id="auth-title" className="serif">
               {isSignUp ? "Create your account" : "Welcome back"}
@@ -123,7 +115,7 @@ const AuthForm = ({ mode, submit }) => {
               {isSignUp ? "Sign in" : "Create an account"}
             </Link>
           </p>
-        </m.form>
+        </form>
       </main>
     </div>
   );

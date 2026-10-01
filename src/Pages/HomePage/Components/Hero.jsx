@@ -1,14 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { m } from "framer-motion";
 import { useUser } from "../../../authState";
 import { ArrowIcon } from "../../../Components/Icons/Icons";
 import classes from "../Styles/Hero.module.css";
 
-const rise = {
-  hidden: { opacity: 0, y: 16 },
-  show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] } }),
-};
 
 // Settings a real strategy is built from. Shown as an example, not as a result.
 const EXAMPLE = [
@@ -24,19 +19,20 @@ const Hero = () => {
 
   return (
     <section className={`wrap ${classes.hero}`} aria-labelledby="hero-title">
+      {/* Entrance is CSS, so the first screen never waits on the deferred motion chunk */}
       <div className={classes.copy}>
-        <m.p className="label" variants={rise} initial="hidden" animate="show" custom={0}>
+        <p className="label" style={{ "--i": 0 }}>
           Backtesting for Indian equities
-        </m.p>
-        <m.h1 id="hero-title" className={`serif ${classes.title}`} variants={rise} initial="hidden" animate="show" custom={1}>
+        </p>
+        <h1 id="hero-title" className={`serif ${classes.title}`} style={{ "--i": 1 }}>
           Simplify equity investing.
-        </m.h1>
-        <m.p className={classes.lede} variants={rise} initial="hidden" animate="show" custom={2}>
+        </h1>
+        <p className={classes.lede} style={{ "--i": 2 }}>
           Your fintech companion for data-driven investing in India. Pick stocks by clear rules,
           backtest them on historical NSE data, and see how the strategy would have held up
           before you put money behind it.
-        </m.p>
-        <m.div className={classes.ctas} variants={rise} initial="hidden" animate="show" custom={3}>
+        </p>
+        <div className={classes.ctas} style={{ "--i": 3 }}>
           <Link to={user ? "/Dashboard" : "/SignUp"} className="btn lg">
             {user ? "Open dashboard" : "Start backtesting free"}
             <ArrowIcon />
@@ -44,16 +40,10 @@ const Hero = () => {
           <a href="#how" className="btn lg ghost">
             How it works
           </a>
-        </m.div>
+        </div>
       </div>
 
-      <m.aside
-        className={`card ${classes.example}`}
-        aria-label="Example strategy"
-        initial={{ opacity: 0, y: 24, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 24, delay: 0.25 }}
-      >
+      <aside className={`card ${classes.example}`} aria-label="Example strategy" style={{ "--i": 3 }}>
         <div className={classes.exampleHead}>
           <span className="label">Example strategy</span>
           <span className={classes.tag}>Illustrative settings</span>
@@ -68,7 +58,7 @@ const Hero = () => {
           ))}
         </dl>
         <p className="hint">Build one like this in the dashboard, then run it over any range in the last two years.</p>
-      </m.aside>
+      </aside>
     </section>
   );
 };

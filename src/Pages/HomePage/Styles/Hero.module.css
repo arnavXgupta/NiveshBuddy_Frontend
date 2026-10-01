@@ -37,3 +37,11 @@
   .rule { grid-template-columns: 1fr; gap: 2px; }
   .example { padding: 22px; }
 }
+
+/* Entrance: rise and settle, staggered by --i. Copy eases out; the example card lands with a small overshoot. */
+@media (prefers-reduced-motion: no-preference) {
+  .copy > *, .example { animation: rise 600ms var(--ease-out) both; animation-delay: calc(var(--i, 0) * 80ms); }
+  .example { animation: land 520ms cubic-bezier(0.34, 1.4, 0.64, 1) both; animation-delay: 240ms; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+@keyframes land { from { opacity: 0; transform: translateY(24px) scale(0.98); } }
