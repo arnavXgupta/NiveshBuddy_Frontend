@@ -1,0 +1,18 @@
+.band {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 40px;
+  padding: 48px;
+  background: var(--page-glow), rgb(var(--surface));
+}
+
+.primary, .secondary { display: grid; gap: 12px; align-content: start; justify-items: start; }
+.primary h2 { font-size: clamp(30px, 3.6vw, 44px); }
+.primary p, .secondary p { color: rgb(var(--muted)); margin-bottom: 8px; }
+.secondary { padding-left: 40px; border-left: 1px solid rgb(var(--line)); }
+.secondary h3 { font-size: 20px; }
+
+@media (max-width: 820px) {
+  .band { grid-template-columns: 1fr; padding: 28px; }
+  .secondary { padding: 28px 0 0; border-left: 0; border-top: 1px solid rgb(var(--line)); }
+}

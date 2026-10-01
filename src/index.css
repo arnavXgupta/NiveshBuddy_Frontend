@@ -31,7 +31,7 @@ a { color: rgb(var(--rose)); text-underline-offset: 3px; }
   border: 0; border-radius: var(--radius-control); cursor: pointer;
   font: 600 15px/1 var(--font-body); text-decoration: none; white-space: nowrap;
   background: rgb(var(--accent)); color: rgb(var(--accent-ink));
-  transition: transform 160ms var(--ease-press), background-color 200ms ease, box-shadow 200ms ease;
+  transition: transform 160ms var(--ease-press), background-color 200ms ease;
 }
 .btn:active { transform: scale(0.97); }
 .btn:disabled { cursor: not-allowed; opacity: 0.6; }
@@ -58,7 +58,6 @@ a { color: rgb(var(--rose)); text-underline-offset: 3px; }
   background: rgb(var(--surface)); color: rgb(var(--ink));
   font: 400 16px var(--font-body);
   box-shadow: inset 0 0 0 1.5px rgb(var(--control));
-  transition: box-shadow 160ms ease;
 }
 .field::placeholder { color: rgb(var(--faint)); }
 .field:focus-visible { outline: 3px solid rgb(var(--rose)); outline-offset: 2px; border-radius: var(--radius-control); }
@@ -88,6 +87,7 @@ input[type="date"].field { padding-right: 12px; }
 .seg svg { width: 18px; height: 18px; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+/* Chips are static labels (not tap targets), so the 44px target rule does not apply */
 .chip {
   display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px;
   border-radius: 999px; background: rgb(var(--surface2)); color: rgb(var(--muted));

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
+import { useUser } from "../../authState";
 import Logo from "../Logo/Logo";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import { CloseIcon, MenuIcon } from "../Icons/Icons";
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
-  const [user] = useAuthState(auth);
+  const [user] = useUser();
   const [open, setOpen] = useState(false);
   const location = useLocation();
 

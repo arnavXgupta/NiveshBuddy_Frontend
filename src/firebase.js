@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+// initializeAuth (not getAuth) leaves out the popup/redirect sign-in code, which nothing uses
+import { initializeAuth, indexedDBLocalPersistence, browserLocalPersistence } from "firebase/auth";
 // import { signInWithPhoneNumber } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -31,18 +32,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Auth provider
-const provider = new GoogleAuthProvider();
-
-// whenever a user interacts with the provider, we force them to select an account
-provider.setCustomParameters({   
-  prompt : "select_account "
+export const auth = initializeAuth(app, {
+  persistence: [indexedDBLocalPersistence, browserLocalPersistence],
 });
-
-export const auth = getAuth(app);
-// auth.languageCode = 'it';
-// auth.useDeviceLanguage();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+// Google sign-in: add `popupRedirectResolver: browserPopupRedirectResolver` above
+// and use signInWithPopup(auth, new GoogleAuthProvider()).
 
 
 // const phoneNumber = getPhoneNumberFromUserInput();
@@ -67,3 +61,5 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 //   // User couldn't sign in (bad verification code?)
 //   // ...
 // });
+
+export { onAuthStateChanged } from "firebase/auth";

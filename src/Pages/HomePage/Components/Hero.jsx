@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../../firebase";
+import { m } from "framer-motion";
+import { useUser } from "../../../authState";
 import { ArrowIcon } from "../../../Components/Icons/Icons";
 import classes from "../Styles/Hero.module.css";
 
@@ -21,23 +20,23 @@ const EXAMPLE = [
 ];
 
 const Hero = () => {
-  const [user] = useAuthState(auth);
+  const [user] = useUser();
 
   return (
     <section className={`wrap ${classes.hero}`} aria-labelledby="hero-title">
       <div className={classes.copy}>
-        <motion.p className="label" variants={rise} initial="hidden" animate="show" custom={0}>
+        <m.p className="label" variants={rise} initial="hidden" animate="show" custom={0}>
           Backtesting for Indian equities
-        </motion.p>
-        <motion.h1 id="hero-title" className={`serif ${classes.title}`} variants={rise} initial="hidden" animate="show" custom={1}>
+        </m.p>
+        <m.h1 id="hero-title" className={`serif ${classes.title}`} variants={rise} initial="hidden" animate="show" custom={1}>
           Simplify equity investing.
-        </motion.h1>
-        <motion.p className={classes.lede} variants={rise} initial="hidden" animate="show" custom={2}>
+        </m.h1>
+        <m.p className={classes.lede} variants={rise} initial="hidden" animate="show" custom={2}>
           Your fintech companion for data-driven investing in India. Pick stocks by clear rules,
           backtest them on historical NSE data, and see how the strategy would have held up
           before you put money behind it.
-        </motion.p>
-        <motion.div className={classes.ctas} variants={rise} initial="hidden" animate="show" custom={3}>
+        </m.p>
+        <m.div className={classes.ctas} variants={rise} initial="hidden" animate="show" custom={3}>
           <Link to={user ? "/Dashboard" : "/SignUp"} className="btn lg">
             {user ? "Open dashboard" : "Start backtesting free"}
             <ArrowIcon />
@@ -45,10 +44,10 @@ const Hero = () => {
           <a href="#how" className="btn lg ghost">
             How it works
           </a>
-        </motion.div>
+        </m.div>
       </div>
 
-      <motion.aside
+      <m.aside
         className={`card ${classes.example}`}
         aria-label="Example strategy"
         initial={{ opacity: 0, y: 24, scale: 0.98 }}
@@ -69,7 +68,7 @@ const Hero = () => {
           ))}
         </dl>
         <p className="hint">Build one like this in the dashboard, then run it over any range in the last two years.</p>
-      </motion.aside>
+      </m.aside>
     </section>
   );
 };

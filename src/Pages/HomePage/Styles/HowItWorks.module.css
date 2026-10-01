@@ -1,0 +1,32 @@
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 64px;
+  padding: 96px 0;
+  border-top: 1px solid rgb(var(--line));
+}
+
+.intro { position: sticky; top: 112px; align-self: start; display: grid; gap: 16px; }
+.intro h2 { font-size: clamp(30px, 3.6vw, 44px); max-width: 16ch; }
+.intro p:last-child { color: rgb(var(--muted)); max-width: 40ch; }
+
+.steps { display: grid; counter-reset: step; }
+.step {
+  display: grid; grid-template-columns: 56px 1fr; gap: 20px;
+  padding: 28px 0;
+  border-top: 1px solid rgb(var(--line));
+}
+.step:first-child { border-top: 0; padding-top: 0; }
+.index { font-size: 14px; color: rgb(var(--rose)); padding-top: 4px; }
+.stepBody { display: grid; gap: 10px; }
+.stepBody h3 { font-size: 22px; }
+.stepBody p { color: rgb(var(--muted)); max-width: 52ch; }
+.stepBody :global(.chips) { margin-top: 4px; }
+
+@media (max-width: 920px) {
+  .section { grid-template-columns: 1fr; gap: 40px; padding: 64px 0; }
+  .intro { position: static; }
+}
+@media (max-width: 480px) {
+  .step { grid-template-columns: 1fr; gap: 8px; }
+}

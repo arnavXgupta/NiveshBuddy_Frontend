@@ -1,0 +1,31 @@
+.section { padding: 96px 0; border-top: 1px solid rgb(var(--line)); }
+
+.head { display: grid; gap: 14px; margin-bottom: 40px; }
+.head h2 { font-size: clamp(30px, 3.6vw, 44px); max-width: 20ch; }
+
+.bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+
+.item { grid-column: span 2; display: grid; align-content: space-between; gap: 28px; padding: 28px; min-height: 320px; }
+.wide { grid-column: span 4; }
+
+.art { display: flex; align-items: center; min-height: 120px; }
+.art svg { width: 100%; height: auto; max-height: 150px; }
+.item:not(.wide) .art svg { width: 62%; }
+
+.text { display: grid; gap: 10px; }
+.text h3 { font-size: 22px; max-width: 26ch; }
+.text p:last-child { color: rgb(var(--muted)); max-width: 50ch; }
+
+.grid { fill: none; stroke: rgb(var(--line)); stroke-width: 1; }
+.line { fill: none; stroke: rgb(var(--rose)); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.lineMuted { fill: none; stroke: rgb(var(--control)); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.dot { fill: rgb(var(--surface)); stroke: rgb(var(--rose)); stroke-width: 1.7; }
+.node { fill: rgb(var(--surface2)); stroke: rgb(var(--control)); stroke-width: 1.4; }
+.nodeAccent { fill: rgb(var(--accent-dim)); stroke: rgb(var(--rose)); stroke-width: 1.7; }
+
+@media (max-width: 920px) {
+  .section { padding: 64px 0; }
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .item, .wide { grid-column: span 2; min-height: 0; }
+  .item:not(.wide) .art svg { width: 40%; }
+}

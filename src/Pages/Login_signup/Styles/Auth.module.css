@@ -1,0 +1,28 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--page-glow), rgb(var(--bg));
+}
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: min(1200px, 100% - 32px); margin-inline: auto; min-height: 72px; }
+.brand { display: inline-flex; align-items: center; min-height: 44px; color: rgb(var(--ink)); }
+.logo { width: 140px; height: auto; }
+
+.main { display: grid; place-items: center; padding: 32px 16px 64px; }
+
+.card { width: min(440px, 100%); display: grid; gap: 20px; padding: 36px; box-shadow: var(--shadow-float); }
+
+.head { display: grid; gap: 6px; margin-bottom: 4px; }
+.head h1 { font-size: 40px; line-height: 1.05; }
+.head p { color: rgb(var(--muted)); }
+
+.error { min-height: 1.4em; margin: -6px 0 -6px; }
+.error:empty { min-height: 0; margin: -10px 0 0; }
+
+.switch { text-align: center; font-size: 15px; color: rgb(var(--muted)); }
+
+@media (max-width: 480px) {
+  .card { padding: 24px; }
+  .head h1 { font-size: 34px; }
+}
